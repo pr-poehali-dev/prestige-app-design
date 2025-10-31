@@ -34,7 +34,7 @@ const Index = () => {
   const showBottomNav = currentScreen !== 'splash' && currentScreen !== 'auth';
 
   return (
-    <div className="h-screen w-full max-w-[1125px] mx-auto bg-sand overflow-hidden relative">
+    <div className="w-[1125px] h-[2436px] mx-auto bg-sand overflow-hidden relative">
       {currentScreen === 'splash' && <SplashScreen />}
       {currentScreen === 'auth' && <AuthScreen onAuth={handleAuth} />}
       {currentScreen === 'catalog' && (
