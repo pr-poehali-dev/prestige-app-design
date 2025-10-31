@@ -96,26 +96,33 @@ const ApartmentScreen = ({ apartmentId, onBack }: ApartmentScreenProps) => {
   if (!apartment) return null;
 
   return (
-    <div className="h-full w-full bg-gradient-to-b from-sand to-white pb-24 overflow-y-auto animate-fade-in">
-      <div className="sticky top-0 z-10 bg-ocean/95 backdrop-blur-sm text-white px-6 py-4 shadow-lg flex items-center gap-4">
+    <div className="w-full h-full bg-gradient-to-b from-sand to-white pb-40 overflow-y-auto animate-fade-in">
+      <div className="sticky top-0 z-10 bg-ocean/95 backdrop-blur-sm text-white px-12 py-8 shadow-lg flex items-center gap-6">
         <Button
           variant="ghost"
           size="icon"
           onClick={onBack}
-          className="text-white hover:bg-white/20 rounded-full"
+          className="text-white hover:bg-white/20 rounded-full w-16 h-16"
         >
-          <Icon name="ArrowLeft" size={24} />
+          <Icon name="ArrowLeft" size={36} />
         </Button>
-        <div>
-          <h1 className="text-xl font-bold font-montserrat">
-            {apartment.rooms}-комнатная квартира
-          </h1>
-          <p className="text-sm text-white/80">Номер {apartment.number}</p>
+        <div className="flex items-center gap-4">
+          <img 
+            src="https://cdn.poehali.dev/files/e887635b-a2f7-4004-b355-49ba8c7a3f0d.png" 
+            alt="ЖК Престиж" 
+            className="w-32 h-auto"
+          />
+          <div>
+            <h1 className="text-4xl font-bold font-montserrat">
+              {apartment.rooms}-комнатная квартира
+            </h1>
+            <p className="text-xl text-white/80">Номер {apartment.number}</p>
+          </div>
         </div>
       </div>
 
-      <div className="px-6 py-6 space-y-6">
-        <Card className="overflow-hidden border-ocean/20 shadow-lg">
+      <div className="px-12 py-12 space-y-10">
+        <Card className="overflow-hidden border-ocean/20 shadow-2xl">
           <img
             src={apartment.image}
             alt={`Планировка ${apartment.rooms}-комнатной квартиры`}
@@ -123,66 +130,66 @@ const ApartmentScreen = ({ apartmentId, onBack }: ApartmentScreenProps) => {
           />
         </Card>
 
-        <Card className="p-6 space-y-4 border-ocean/20 shadow-md">
-          <h2 className="font-montserrat font-semibold text-xl text-depth mb-4">
+        <Card className="p-10 space-y-6 border-ocean/20 shadow-xl">
+          <h2 className="font-montserrat font-semibold text-3xl text-depth mb-6">
             Характеристики
           </h2>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-depth/60 text-sm">
-                <Icon name="Building" size={16} className="text-ocean" />
+          <div className="grid grid-cols-2 gap-8">
+            <div className="space-y-2">
+              <div className="flex items-center gap-3 text-depth/60 text-lg">
+                <Icon name="Building" size={24} className="text-ocean" />
                 <span>Этаж</span>
               </div>
-              <p className="text-lg font-semibold text-depth">{apartment.floor}</p>
+              <p className="text-3xl font-semibold text-depth">{apartment.floor}</p>
             </div>
 
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-depth/60 text-sm">
-                <Icon name="Home" size={16} className="text-ocean" />
-                <span>Комнат</span>
+            <div className="space-y-2">
+              <div className="flex items-center gap-3 text-depth/60 text-lg">
+                <Icon name="Home" size={24} className="text-ocean" />
+                <span>Количество комнат</span>
               </div>
-              <p className="text-lg font-semibold text-depth">{apartment.rooms}</p>
+              <p className="text-3xl font-semibold text-depth">{apartment.rooms}</p>
             </div>
 
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-depth/60 text-sm">
-                <Icon name="Maximize" size={16} className="text-ocean" />
-                <span>Площадь</span>
+            <div className="space-y-2">
+              <div className="flex items-center gap-3 text-depth/60 text-lg">
+                <Icon name="Maximize" size={24} className="text-ocean" />
+                <span>Общая площадь</span>
               </div>
-              <p className="text-lg font-semibold text-depth">{apartment.area} м²</p>
+              <p className="text-3xl font-semibold text-depth">{apartment.area} м²</p>
             </div>
 
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-depth/60 text-sm">
-                <Icon name="Hash" size={16} className="text-ocean" />
-                <span>Квартира</span>
+            <div className="space-y-2">
+              <div className="flex items-center gap-3 text-depth/60 text-lg">
+                <Icon name="Hash" size={24} className="text-ocean" />
+                <span>Номер квартиры</span>
               </div>
-              <p className="text-lg font-semibold text-depth">{apartment.number}</p>
+              <p className="text-3xl font-semibold text-depth">{apartment.number}</p>
             </div>
           </div>
         </Card>
 
-        <Card className="p-6 border-ocean/20 shadow-md">
-          <h2 className="font-montserrat font-semibold text-xl text-depth mb-4">
+        <Card className="p-10 border-ocean/20 shadow-xl">
+          <h2 className="font-montserrat font-semibold text-3xl text-depth mb-6">
             Площади помещений
           </h2>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {apartment.spaces.map((space: any, index: number) => (
               <div
                 key={index}
-                className="flex justify-between items-center py-2 border-b border-depth/10 last:border-0"
+                className="flex justify-between items-center py-4 border-b border-depth/10 last:border-0"
               >
-                <span className="text-depth/80">{space.name}</span>
-                <span className="font-semibold text-depth">{space.area} м²</span>
+                <span className="text-depth/80 text-xl">{space.name}</span>
+                <span className="font-semibold text-depth text-2xl">{space.area} м²</span>
               </div>
             ))}
           </div>
         </Card>
 
         <Button 
-          className="w-full bg-ocean hover:bg-ocean/90 text-white font-semibold py-6 rounded-xl transition-all hover:scale-[1.02]"
+          className="w-full bg-ocean hover:bg-ocean/90 text-white font-semibold py-10 text-2xl rounded-2xl transition-all hover:scale-[1.02] shadow-xl"
         >
           Забронировать квартиру
         </Button>

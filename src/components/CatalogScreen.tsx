@@ -45,48 +45,48 @@ const apartments = [
 
 const CatalogScreen = ({ onSelectApartment }: CatalogScreenProps) => {
   return (
-    <div className="h-full w-full bg-gradient-to-b from-sand to-white pb-24 overflow-y-auto">
-      <div className="sticky top-0 z-10 bg-ocean/95 backdrop-blur-sm text-white px-6 py-6 shadow-lg">
-        <h1 className="text-2xl font-bold font-montserrat mb-1">ЖК Престиж</h1>
-        <p className="text-sm text-white/80">Выберите квартиру мечты</p>
+    <div className="w-full h-full bg-gradient-to-b from-sand to-white pb-32 overflow-y-auto">
+      <div className="sticky top-0 z-10 bg-ocean/95 backdrop-blur-sm text-white px-12 py-12 shadow-lg">
+        <h1 className="text-5xl font-bold font-montserrat mb-2">ЖК Престиж</h1>
+        <p className="text-xl text-white/80">Выберите квартиру мечты</p>
       </div>
 
-      <div className="px-6 py-6 space-y-4 animate-fade-in">
+      <div className="px-12 py-12 space-y-6 animate-fade-in">
         {apartments.map((apt, index) => (
           <Card
             key={apt.id}
             onClick={() => onSelectApartment(apt.id)}
-            className="overflow-hidden cursor-pointer transition-all hover:shadow-xl hover:scale-[1.02] border-ocean/10 animate-slide-up"
+            className="overflow-hidden cursor-pointer transition-all hover:shadow-2xl hover:scale-[1.01] border-ocean/10 animate-slide-up"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="flex gap-4 p-4">
+            <div className="flex gap-8 p-8">
               <div className="flex-shrink-0">
                 <img
                   src={apt.image}
                   alt={`${apt.rooms}-комнатная квартира`}
-                  className="w-24 h-24 object-cover rounded-lg border-2 border-ocean/20"
+                  className="w-48 h-48 object-cover rounded-2xl border-2 border-ocean/20"
                 />
               </div>
 
               <div className="flex-1 min-w-0">
-                <h3 className="font-montserrat font-semibold text-lg text-depth mb-2">
+                <h3 className="font-montserrat font-semibold text-3xl text-depth mb-4">
                   {apt.rooms}-комнатная квартира
                 </h3>
 
-                <div className="space-y-1.5 text-sm">
-                  <div className="flex items-center gap-2 text-depth/70">
-                    <Icon name="Maximize" size={16} className="text-ocean" />
+                <div className="space-y-3 text-xl">
+                  <div className="flex items-center gap-3 text-depth/70">
+                    <Icon name="Maximize" size={24} className="text-ocean" />
                     <span>Общая площадь: <strong className="text-depth">{apt.area} м²</strong></span>
                   </div>
-                  <div className="flex items-center gap-2 text-depth/70">
-                    <Icon name="Hash" size={16} className="text-ocean" />
+                  <div className="flex items-center gap-3 text-depth/70">
+                    <Icon name="Hash" size={24} className="text-ocean" />
                     <span>Номер квартиры: <strong className="text-depth">{apt.number}</strong></span>
                   </div>
                 </div>
               </div>
 
               <div className="flex items-center">
-                <Icon name="ChevronRight" size={24} className="text-ocean" />
+                <Icon name="ChevronRight" size={36} className="text-ocean" />
               </div>
             </div>
           </Card>
